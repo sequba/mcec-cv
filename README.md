@@ -11,12 +11,8 @@ Build requirements:
 		- xcolor
 		- textpos
 		- ragged2e
-		- etoolbox
-		- ifmtarg
-		- ifthen
-		- pgffor
-		- marvosym
 		- parskip
+		- fontawesome
 
 ###Profile environment
 These are the command to set up the profile information.
@@ -27,9 +23,9 @@ These are the command to set up the profile information.
 * Set up your name.
 	
 		\cvname{your name}
-* Set up your job profile.
+* Set up your actual job position.
 	
-		\cvjobtitle{your job title}
+		\cvjobtitle{your actual job position}
 * Set up your date of birth.
 	
 		\cvdate{date}	
@@ -42,18 +38,22 @@ These are the command to set up the profile information.
 * Set up your email.
 	
 		\cvmail{email address}
-* Set up your personal home page.
+* Set up your personal home page (short address).
+ 	
+		\cvsitename{home page address}
+* Set up your personal home page (complete address).
 	
-		\cvsite{home page address}
+		\cvsiteaddress{home page address}
+
 * Set up a brief description of you.
 	
 		\about{brief description}
-* Set up the skills with chart style. Each skill must is a couple `{name/value}`, where the value is a floating point value between `0` and `6`. This is an agreement for the graphics issues, the `0` correspond to a Fundamental awareness while `6` to a Expert awareness level.
+* Set up the languages. Each language must is a couple `{name/value}`, where the value is a description.
 	
-		\skills{{name skill1/5.8},{name skill2/4}} 
-* Set up the skills with text style.
+		\languages{{name_language/description}, {name_language/description}}
+* Set up the skills. Each skill will must is in form `{name_skill}`.
 	
-		\skillstext{{name skill1/5.8},{name skill2/4}} 
+		\skills{{name_skill},{name_skill}}
 
 To create the profile use the command:
 
@@ -61,40 +61,55 @@ To create the profile use the command:
 
 ###Body environment
 The body document part is composed by sections.
-In the sections you can put two kinds of list items.
+In the sections you can put three kinds of list items.
 
-The first (_Twenty items environment_) intends a list of detailed information with four part: **Data** -- **Title** -- **Place** -- **Description**. 
+The first (_mcec long list_) intends a list of detailed information with five part: **(1) job position / title of school** -- **(2) company name / school course** -- **(3) date** -- **(4) location** -- **(5) description**. 
 
-The second (_Twenty items short environment_) intends a fewer informationinformation (you can customize this list more easily): **Data** -- **Description**.
+The second (_mcec normal list_) intends a list of information with three part: **(1) title of certificate** -- **(2) code** -- **(3) date**.
+
+The third (_mcec short list_) intends a list of few information with two part: **(1) date** -- **(2) title**. 
+
 #### Sections
 * Set up a new section in the body part.
 		
-		\section{sction name}
+		\section{section name}
 
 
-####Twenty items environment
+#### mcec long list
 ```
-\begin{twenty}
-  \twentyitem
-    {year}
+\begin{mcecllist}
+  \litem
+    {job position}
+    {company name}
+    {date}
+    {location}
+    {description}
+\end{mcecllist}
+```
+#### mcec normal list
+```
+\begin{mcecnlist}
+  \nitem
+    {title certificate}
+    {code}
+    {date}
+\end{mcecnlist}
+```
+#### mcec short list
+```
+\begin{mcecslist}
+  \sitem
+    {date}
     {title}
-    {place}
-    {description}
-\end{twenty}
+\end{mcecslist}
 ```
 
-#### Twenty items short environment
-```
-\begin{twentyshort}
-  \twentyitemshort
-    {year}
-    {description}
-\end{twentyshort}
-```
 ###Other commands
-There other two fun command: \icon and \round; that enables to wrap the text in oval shape.
+There are other command: 
 
-```
-	\icon{text}
-	\round{text, color}
-```
+* `\flag` that enable to wrap the text in grey box.
+
+		\flag{text}
+* `\largeflag` do the same with large font.
+
+		\largeflag{text}	

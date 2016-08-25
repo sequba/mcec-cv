@@ -7,27 +7,14 @@
 % ------------------------------
 
 \RequirePackage[default]{lato}
-%\RequirePackage[T1]{fontenc}
-%\usepackage{DejaVuSansCondensed}
-%\renewcommand*\familydefault{\sfdefault} %% Only if the base font of the document is to be sans serif
 \usepackage[T1]{fontenc}
 
 \RequirePackage{tikz}
 \RequirePackage{xcolor}
 \RequirePackage[absolute,overlay]{textpos}
 \RequirePackage{ragged2e}
-\RequirePackage{etoolbox}
-\RequirePackage{ifmtarg}
-\RequirePackage{ifthen}
-\RequirePackage{pgffor}
-\RequirePackage{marvosym}
 \RequirePackage{parskip}
 \RequirePackage{fontawesome}
-
-%\usepackage{ifthen}
-%\usepackage{showframe}
-%\usepackage{xparse}
-
 
 % ------------------------------
 % -- Colors --
@@ -98,10 +85,10 @@
 \newcommand{\givencvsiteaddress}{}
 
 % -- settings: about me --
-\newcommand{\aboutme}[1]{\renewcommand{\givenaboutme}{
+\newcommand{\about}[1]{\renewcommand{\givenabout}{
 	\vspace{0.5cm} 
 	\section{About me}\justifying #1}}
-\newcommand{\givenaboutme}{}
+\newcommand{\givenabout}{}
 
 % -- settings: languages --
 \newcommand{\languages}[1]{
@@ -169,8 +156,6 @@
 % 	(1) job position / title school
 %	(2) company name / school course
 % 	(3) date (4) location (5) description
-
-%\setlength{\tabcolsep}{0pt}
 \newenvironment{mcecllist}{
 	\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}ll} }
 	{ \end{tabular*} }
@@ -203,9 +188,6 @@
 \vspace{0.1cm} \hspace{4pt} \color{grey} {\small #1}&\parbox[t]{12cm}{
 	\textnormal{\color{black} \normalsize #2}
 }\\}
-
-
-
 
 
 
@@ -244,9 +226,7 @@
 	\ifthenelse{\equal{\givencvsitename}{}}{}{\textsc{\faGlobe} & \href{\givencvsiteaddress}{{\color{maincolor} \givencvsitename}} \\[0.1cm]}
 	\end{tabular}
 
-%	\vspace{0.5cm}
-%	\section{About me}
-	\givenaboutme
+	\givenabout
 	
 	\givenlanguages
 	
@@ -273,8 +253,6 @@
 \begin{center}
 	{\color{maincolor} \Huge\givencvname}
 \end{center}
-
-%\noindent\rule{13.9cm}{0.8pt}
 
 % -- print job position --
 \begin{center}
