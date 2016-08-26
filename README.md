@@ -113,3 +113,6 @@ There are other command:
 * `\largeflag` do the same with large font.
 
 		\largeflag{text}	
+* `\round` that enables to wrap the text in oval shape (it is included in `\flag` command).
+
+		\round{text}	

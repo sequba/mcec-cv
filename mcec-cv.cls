@@ -44,9 +44,16 @@
 	} \par\noindent
 }
 
+\newcommand*\round[1]{%
+  \tikz[baseline=(char.base)]\node[anchor=north west, draw, rectangle, rounded corners, inner sep=3pt, minimum size=6mm,
+    text height=3mm, fill=maingrey, maingrey, text=white](char){#1} ;}
+
 % -- mcec flags: --
-\newcommand{\flag}[1]{\fcolorbox{lightgrey}{lightgrey}{\color{white} #1}}
-\newcommand{\largeflag}[1]{\fcolorbox{lightgrey}{lightgrey}{\color{white} \large #1}}
+%\newcommand{\flag}[1]{\fcolorbox{lightgrey}{lightgrey}{\color{white} #1}}
+%\newcommand{\largeflag}[1]{\fcolorbox{lightgrey}{lightgrey}{\color{white} \large #1}}
+
+\newcommand{\flag}[1]{\round{#1}}
+\newcommand{\largeflag}[1]{\round{\large #1}}
 
 % ------------------------------
 % -- Profile left SideBar --
@@ -174,10 +181,10 @@
 	\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}ll} }
 	{ \end{tabular*} }
 \newcommand{\nitem}[3]{
-\hspace{1mm} \parbox[t]{11.5cm}{
+\vspace{5mm} \hspace{1mm} \parbox[t]{11.5cm}{
 	\textbf{\color{black} \large #1} \\
 	\textbf{\color{black} \normalsize #2} | \textbf{\color{grey} {\small #3}}	
-}}
+} \\ }
 
 % mcecslist (short list): [2]
 % 	(1) date (2) title
