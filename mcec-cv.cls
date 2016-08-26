@@ -32,7 +32,7 @@
 % -- Page Setting --
 % ------------------------------
 
-\RequirePackage[left=7.2cm, top=1cm, right=0.8cm, bottom=1cm, nohead, nofoot]{geometry}
+\RequirePackage[left=7.2cm, top=1cm, right=0.8cm, bottom=1.3cm, nohead, nofoot]{geometry}
 \RequirePackage{hyperref}
 
 % -- settings: section --
@@ -98,12 +98,28 @@
 \newcommand{\givenabout}{}
 
 % -- settings: languages --
+%\newcommand{\languages}[1]{
+%	\renewcommand{\givenlanguages}{
+%		\vspace{0.5cm} 
+%		\section{Languages}
+%		\begin{flushleft}
+%		\foreach [count=\i] \x/\y in {#1} {\hspace{0.05	cm} \flag{\x} \hfill {\small \y} \\ }
+%		\end{flushleft}
+%}}
+%\newcommand{\givenlanguages}{}
+
 \newcommand{\languages}[1]{
 	\renewcommand{\givenlanguages}{
 		\vspace{0.5cm} 
 		\section{Languages}
 		\begin{flushleft}
-		\foreach [count=\i] \x/\y in {#1} {\hspace{0.05	cm} \flag{\x} \hfill {\small \y} \\ }
+		\foreach [count=\i] \x/\y in {#1} {
+			\begin{table}[]
+			\begin{tabular}{lr}
+				\hspace{-0.25 cm} \flag{\x} & {\small \y}
+			\end{tabular}
+			\end{table}		
+		}
 		\end{flushleft}
 }}
 \newcommand{\givenlanguages}{}
