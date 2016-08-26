@@ -22,30 +22,35 @@ These are the command to set up the profile information.
 		\profilepic{paht_name}
 * Set up your name.
 	
-		\cvname{your name}
+		\name{your name}
 * Set up your actual job position.
 	
-		\cvjobtitle{your actual job position}
+		\job{your actual job position}
 * Set up your date of birth.
 	
-		\cvdate{date}	
+		\date{date}	
 * Set up your address.
 	
-		\cvaddress{address}		
-* Set up your telephone number.
+		\address{address}		
+* Set up your telephone numbers.
 	
-		\cvnumberphone{phone number}
-* Set up your email.
+		\phones{{phone number},{phone number}}
+* Set up your email addresses.
 	
-		\cvmail{email address}
-* Set up your personal home page (short address).
+		\emails{{email address},{email address}}
+* Set up your personal home page (two argument: short address and complete link).
  	
-		\cvsitename{home page address}
-* Set up your personal home page (complete address).
+		\site{home page address name}{link}
+* Set up your linkedin profile.
 	
-		\cvsiteaddress{home page address}
-
-* Set up a brief description of you.
+		\linkedin{link}	
+* Set up your github profile.
+	
+		\github{link}	
+* Set up your twitter profile.
+	
+		\twitter{link}	
+* Set up a brief description of you.* 
 	
 		\about{brief description}
 * Set up the languages. Each language must is a couple `{name/value}`, where the value is a description.

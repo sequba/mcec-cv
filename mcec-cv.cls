@@ -25,7 +25,7 @@
 \definecolor{maincolor}{HTML}{245FA6}
 \definecolor{grey}{HTML}{484848}
 \definecolor{lightgrey}{HTML}{8F8F8F}
-\definecolor{maingrey}{HTML}{B3B3B3}
+\definecolor{maingrey}{HTML}{8A8A8A}
 \colorlet{asidecolor}{sidecolor}
 
 % ------------------------------
@@ -44,16 +44,17 @@
 	} \par\noindent
 }
 
-\newcommand*\round[1]{%
+\newcommand*\round[3]{%
   \tikz[baseline=(char.base)]\node[anchor=north west, draw, rectangle, rounded corners, inner sep=3pt, minimum size=6mm,
-    text height=3mm, fill=maingrey, maingrey, text=white](char){#1} ;}
+    text height=3mm, fill=#2, #2, text=#3](char){#1} ;}
+    
+\newcommand*\littleround[3]{%
+  \tikz[baseline=(char.base)]\node[rounded corners, minimum width=6mm, fill=#2, #2, text=#3](char){#1} ;}
 
 % -- mcec flags: --
-%\newcommand{\flag}[1]{\fcolorbox{lightgrey}{lightgrey}{\color{white} #1}}
-%\newcommand{\largeflag}[1]{\fcolorbox{lightgrey}{lightgrey}{\color{white} \large #1}}
-
-\newcommand{\flag}[1]{\round{#1}}
-\newcommand{\largeflag}[1]{\round{\large #1}}
+\newcommand{\flag}[1]{\round{#1}{maingrey}{white}}
+\newcommand{\largeflag}[1]{\round{\large #1}{maingrey}{white}}
+\newcommand{\wbflag}[1]{\littleround{#1}{white}{black}}
 
 % ------------------------------
 % -- Profile left SideBar --
@@ -62,34 +63,60 @@
 \setlength{\TPHorizModule}{1cm} % left border
 \setlength{\TPVertModule}{2cm} % top border
 
-% -- settings: image profile --
+% -- settings: profile pic --
 \newcommand{\imsize}{\linewidth}
 \newlength\imagewidth
 \newlength\imagescale
 \renewcommand{\imsize}{0.618\linewidth}
 \pgfmathsetlength{\imagewidth}{5.5cm}
 \pgfmathsetlength{\imagescale}{\imagewidth/600}
-
-% -- settings: personal info --
-\newcommand{\profilepic}[1]{\renewcommand{\givenprofilepic}{#1}}
-\newcommand{\cvname}[1]{\renewcommand{\givencvname}{#1}}
-\newcommand{\cvjobtitle}[1]{\renewcommand{\givencvjobtitle}{#1}}
-\newcommand{\cvdate}[1]{\renewcommand{\givencvdate}{#1}}
-\newcommand{\cvaddress}[1]{\renewcommand{\givencvaddress}{#1}}
-\newcommand{\cvnumberphone}[1]{\renewcommand{\givennumberphone}{#1}}
-\newcommand{\cvmail}[1]{\renewcommand{\givencvmail}{#1}}
-\newcommand{\cvsitename}[1]{\renewcommand{\givencvsitename}{#1}}
-\newcommand{\cvsiteaddress}[1]{\renewcommand{\givencvsiteaddress}{#1}}
-
 \newcommand{\givenprofilepic}{}
-\newcommand{\givencvname}{REQUIRED!}
-\newcommand{\givencvjobtitle}{}
-\newcommand{\givencvdate}{}
-\newcommand{\givencvaddress}{REQUIRED!}
-\newcommand{\givennumberphone}{REQUIRED!}
-\newcommand{\givencvmail}{}
-\newcommand{\givencvsitename}{}
-\newcommand{\givencvsiteaddress}{}
+\newcommand{\profilepic}[1]{\renewcommand{\givenprofilepic}{#1}}
+% -- settings: name --
+\newcommand{\givenname}{REQUIRED!}
+\newcommand{\name}[1]{\renewcommand{\givenname}{#1}}
+% -- settings: job --
+\newcommand{\givenjob}{}
+\newcommand{\job}[1]{\renewcommand{\givenjob}{#1}}
+% -- settings: birth date  --
+\newcommand{\givendate}{}
+\renewcommand{\date}[1]{\renewcommand{\givendate}{\textsc{\wbflag{\faCalendar}} #1 \\}}
+% -- settings: address --
+\newcommand{\givenaddress}{}
+\newcommand{\address}[1]{\renewcommand{\givenaddress}{\textsc{\wbflag{\faMapMarker}} #1 \\}}
+% -- settings: phones --
+\newcommand{\givenphones}{}
+\newcommand{\phones}[1]{
+	\renewcommand{\givenphones}{
+		\foreach [count=\i] \x in {#1} {\textsc{\wbflag{\faPhone}} \x \\}	
+}}
+% -- settings: emails --
+\newcommand{\givenemails}{}
+\newcommand{\emails}[1]{
+	\renewcommand{\givenemails}{
+		\foreach [count=\i] \x in {#1} {\textsc{\wbflag{@}} \href{mailto:\x}{\x}  \\}	
+}}
+% -- settings: site address --
+\newcommand{\givensite}{}
+\newcommand{\site}[2]{
+	\renewcommand{\givensite}{\textsc{\wbflag{\faGlobe}} \href{#2}{#1}  \\}	
+}
+% -- settings: github address
+\newcommand{\givengithub}{}
+\newcommand{\github}[1]{
+	\renewcommand{\givengithub}{\textsc{\wbflag{\faGithub}} \href{#1}{https://github.com} \\}
+}
+% -- settings: linkedin address
+\newcommand{\givenlinkedin}{}
+\newcommand{\linkedin}[1]{
+	\renewcommand{\givenlinkedin}{\textsc{\wbflag{\faLinkedin}} \href{#1}{https://linkedin.com} \\}
+}
+% -- settings: twitter address
+\newcommand{\giventwitter}{}
+\newcommand{\twitter}[1]{
+	\renewcommand{\giventwitter}{\textsc{\wbflag{\faTwitter}} \href{#1}{https://twitter.com} \\}
+}
+
 
 % -- settings: about me --
 \newcommand{\about}[1]{\renewcommand{\givenabout}{
@@ -98,16 +125,6 @@
 \newcommand{\givenabout}{}
 
 % -- settings: languages --
-%\newcommand{\languages}[1]{
-%	\renewcommand{\givenlanguages}{
-%		\vspace{0.5cm} 
-%		\section{Languages}
-%		\begin{flushleft}
-%		\foreach [count=\i] \x/\y in {#1} {\hspace{0.05	cm} \flag{\x} \hfill {\small \y} \\ }
-%		\end{flushleft}
-%}}
-%\newcommand{\givenlanguages}{}
-
 \newcommand{\languages}[1]{
 	\renewcommand{\givenlanguages}{
 		\vspace{0.5cm} 
@@ -137,38 +154,36 @@
 
 
 % -- settings: skills --
-%\newcommand\skills[1]{ 
-%\renewcommand{\givenskill}{
-%\noindent
-%\begin{tikzpicture}
-%\foreach [count=\i] \x/\y in {#1}
-%{
-%
-%\draw[fill=maingrey,maingrey] (0,\i) rectangle (6,\i+0.4);
-%\draw[fill=white,maincolor](0,\i) rectangle (\y,\i+0.4);
-%\node [above right ] at (0,\i+0.4) {\x};
-%}
-%\end{tikzpicture}
-%}
-%}
-%\newcommand{\givenskill}{}
-%
-%\newcommand\skillstext[1]{ 
-%
-%\renewcommand{\giventextskill}{
-%\begin{flushleft}
-%\noindent
-%\foreach [count=\i] \x/\y in {#1}
-%{ 
-%\x$ \star $\y
-%}
-%\end{flushleft}
-%}
-%}
-%
-%\newcommand{\giventextskill}{}
+\newcommand\skills[1]{ 
+\renewcommand{\givenskill}{
+\noindent
+\begin{tikzpicture}
+\foreach [count=\i] \x/\y in {#1}
+{
 
+\draw[fill=maingrey,maingrey] (0,\i) rectangle (6,\i+0.4);
+\draw[fill=white,maincolor](0,\i) rectangle (\y,\i+0.4);
+\node [above right ] at (0,\i+0.4) {\x};
+}
+\end{tikzpicture}
+}
+}
+\newcommand{\givenskill}{}
 
+\newcommand\skillstext[1]{ 
+
+\renewcommand{\giventextskill}{
+\begin{flushleft}
+\noindent
+\foreach [count=\i] \x/\y in {#1}
+{ 
+\x$ \star $\y
+}
+\end{flushleft}
+}
+}
+
+\newcommand{\giventextskill}{}
 
 
 % ------------------------------
@@ -222,7 +237,7 @@
 {
 % -- grey background --
 \begin{tikzpicture}[remember picture, overlay]
-   	 \node [rectangle, fill=asidecolor, anchor=north, minimum width=6.5cm, minimum height=10.6cm] (box) at (-3.7cm,1.6cm){};
+   	 \node [rectangle, fill=asidecolor, anchor=north, minimum width=7cm, minimum height=8cm] (box) at (-3.8cm,1.6cm){};
 \end{tikzpicture}
 
 % -- left sidebar content --
@@ -237,17 +252,19 @@
 
 	% -- print profile name --
 	\begin{center}
-		{\LARGE\givencvname}
+		{\LARGE\givenname}
 	\end{center}
 
 	% -- print personal info --
-	\begin{tabular}{p{0.1cm} @{\hskip 0.5cm}p{5cm}}
-	\ifthenelse{\equal{\givencvdate}{}}{}{\textsc{\footnotesize\faCalendar} & \givencvdate\\[0.1cm]}
-	\ifthenelse{\equal{\givencvaddress}{}}{}{\textsc{\faMapMarker} & \givencvaddress\\[0.1cm]}
-	\ifthenelse{\equal{\givennumberphone}{}}{}{\textsc{\faPhone} & \givennumberphone\\[0.1cm]}
-	\ifthenelse{\equal{\givencvmail}{}}{}{\textsc{@} & \href{mailto:\givencvmail}{{\color{maincolor} \givencvmail}} \\[0.1cm]}
-	\ifthenelse{\equal{\givencvsitename}{}}{}{\textsc{\faGlobe} & \href{\givencvsiteaddress}{{\color{maincolor} \givencvsitename}} \\[0.1cm]}
-	\end{tabular}
+	\vspace{0.5cm}	
+	\givendate	
+	\givenaddress
+	\givenphones	
+	\givenemails
+	\givensite
+	\givenlinkedin
+	\givengithub
+	\giventwitter
 
 	\givenabout
 	
@@ -274,12 +291,12 @@
 {
 % -- print profile name --
 \begin{center}
-	{\color{maincolor} \Huge\givencvname}
+	{\color{maincolor} \Huge\givenname}
 \end{center}
 
 % -- print job position --
 \begin{center}
-	{\color{grey} \Large\givencvjobtitle}
+	{\color{grey} \Large\givenjob}
 \end{center}
 \vspace{5pt}
 }
