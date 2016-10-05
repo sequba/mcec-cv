@@ -206,15 +206,15 @@
 \vspace{5mm} \hspace{1mm} \parbox[t]{13.4cm}{ {\color{grey} \small #5} }
 \\ }
 
-% mcecslist (normal list): [3]
-% 	(1) title certificate (2) code (3) date 
+% mcecslist (normal list): [4]
+% 	(1) title certificate (2) link (3) code (4) date 
 \newenvironment{mcecnlist}{
 	\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}ll} }
 	{ \end{tabular*} }
-\newcommand{\nitem}[3]{
+\newcommand{\nitem}[4]{
 \vspace{5mm} \hspace{1mm} \parbox[t]{11.5cm}{
-	\textbf{\color{black} \large #1} \\
-	\textbf{\color{black} \normalsize #2} | \textbf{\color{grey} {\small #3}}	
+	\textbf{\color{black} \href{#2}{#1}} \\
+	\textbf{\color{black} \normalsize #3} | \textbf{\color{grey} {\small #4}}		
 } \\ }
 
 % mcecslist (short list): [2]
