@@ -237,7 +237,7 @@
 {
 % -- grey background --
 \begin{tikzpicture}[remember picture, overlay]
-   	 \node [rectangle, fill=asidecolor, anchor=north, minimum width=7cm, minimum height=8cm] (box) at (-3.8cm,1.6cm){};
+   	 \node [rectangle, fill=asidecolor, anchor=north, minimum width=7cm, minimum height=9cm] (box) at (-3.8cm,1.6cm){};
 \end{tikzpicture}
 
 % -- left sidebar content --
@@ -252,7 +252,12 @@
 
 	% -- print profile name --
 	\begin{center}
-		{\LARGE\givenname}
+		{\huge\givenname}
+	\end{center}
+
+	% -- print job title --
+	\begin{center}
+    	{\color{grey} \Large\givenjob}
 	\end{center}
 
 	% -- print personal info --
