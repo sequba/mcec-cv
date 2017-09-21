@@ -104,7 +104,7 @@
 % -- settings: github address
 \newcommand{\givengithub}{}
 \newcommand{\github}[1]{
-	\renewcommand{\givengithub}{\textsc{\wbflag{\faGithub}} \href{#1}{https://github.com} \\}
+	\renewcommand{\givengithub}{\textsc{\wbflag{\faGithub}} \href{#1}{#1} \\}
 }
 % -- settings: linkedin address
 \newcommand{\givenlinkedin}{}
@@ -237,7 +237,7 @@
 {
 % -- grey background --
 \begin{tikzpicture}[remember picture, overlay]
-	\node [rectangle, fill=asidecolor, anchor=north, minimum width=7cm, minimum height=12cm] (box) at (-3.8cm,1.6cm){};
+	\node [rectangle, fill=asidecolor, anchor=north, minimum width=7cm, minimum height=9cm] (box) at (-3.8cm,1.6cm){};
 \end{tikzpicture}
 
 % -- left sidebar content --
