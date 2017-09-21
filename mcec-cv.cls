@@ -2,12 +2,14 @@
 \LoadClass{article}
 \NeedsTeXFormat{LaTeX2e}
 
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
 % ------------------------------
 % -- Packages --
 % ------------------------------
 
 \RequirePackage[default]{lato}
-\usepackage[T1]{fontenc}
 
 \RequirePackage{tikz}
 \RequirePackage{xcolor}
