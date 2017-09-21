@@ -21,11 +21,11 @@
 % ------------------------------
 \definecolor{white}{HTML}{FFFFFF}
 \definecolor{black}{HTML}{000000}
-\definecolor{sidecolor}{HTML}{E7E7E7}
-\definecolor{maincolor}{HTML}{245FA6}
+\definecolor{sidecolor}{HTML}{DBEEEE} %{E2EBEB} %{E7E7E7}
+\definecolor{maincolor}{HTML}{5D9595} %{81B3B1} % {76A9A7}
+\definecolor{maingrey}{HTML}{3d6262} % {8E9E9D} % {8A8A8A}
 \definecolor{grey}{HTML}{484848}
 \definecolor{lightgrey}{HTML}{8F8F8F}
-\definecolor{maingrey}{HTML}{8A8A8A}
 \colorlet{asidecolor}{sidecolor}
 
 % ------------------------------
@@ -237,7 +237,7 @@
 {
 % -- grey background --
 \begin{tikzpicture}[remember picture, overlay]
-   	 \node [rectangle, fill=asidecolor, anchor=north, minimum width=7cm, minimum height=9cm] (box) at (-3.8cm,1.6cm){};
+	\node [rectangle, fill=asidecolor, anchor=north, minimum width=7cm, minimum height=12cm] (box) at (-3.8cm,1.6cm){};
 \end{tikzpicture}
 
 % -- left sidebar content --
@@ -252,7 +252,7 @@
 
 	% -- print profile name --
 	\begin{center}
-		{\huge\givenname}
+		{ \huge\textbf{\givenname}}
 	\end{center}
 
 	% -- print job title --
