@@ -125,18 +125,18 @@
 
 
 % -- settings: about me --
-\newcommand{\about}[1]{\renewcommand{\givenabout}{
+\newcommand{\about}[2][About me]{\renewcommand{\givenabout}{
 	\vspace{0.5cm} 
-	\section{About me}\justifying #1}}
+	\section{#1}\justifying #2}}
 \newcommand{\givenabout}{}
 
 % -- settings: languages --
-\newcommand{\languages}[1]{
+\newcommand{\languages}[2][Languages]{
 	\renewcommand{\givenlanguages}{
 		\vspace{0.5cm} 
-		\section{Languages}
+		\section{#1}
 		\begin{flushleft}
-		\foreach [count=\i] \x/\y in {#1} {
+		\foreach [count=\i] \x/\y in {#2} {
 			\begin{table}[]
 			\begin{tabular}{lr}
 				\hspace{-0.25 cm} \flag{\x} & {\small \y}
@@ -148,12 +148,12 @@
 \newcommand{\givenlanguages}{}
 
 % -- settings: mcec skills --
-\newcommand{\mcecskills}[1]{ 
+\newcommand{\mcecskills}[2][Skills]{ 
 	\renewcommand{\givenmcecskills}{
 		\vspace{0.5cm} 
-		\section{Skills}
+		\section{#1}
 		\begin{flushleft}
-		\foreach [count=\i] \x in {#1} {\flag{\x} } 
+		\foreach [count=\i] \x in {#2} {\flag{\x} } 
 		\end{flushleft}
 }}
 \newcommand{\givenmcecskills}{}
