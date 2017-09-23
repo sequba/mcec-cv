@@ -37,6 +37,10 @@
 \RequirePackage[left=7.2cm, top=1cm, right=0.8cm, bottom=1.3cm, nohead, nofoot]{geometry}
 \RequirePackage{hyperref}
 
+% -- settings: emphasis --
+\let\emph\relax % theres no \RedeclareTextFontCommand
+\DeclareTextFontCommand{\emph}{\bfseries}
+
 % -- settings: section --
 \renewcommand{\section}[1]{
 	\par\noindent\colorbox{maincolor}
