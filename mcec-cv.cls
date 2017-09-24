@@ -39,6 +39,12 @@
 \RequirePackage{hyperref}
 \pagenumbering{gobble}
 
+% -- settings: links --
+\hypersetup{
+	colorlinks=true,
+%	linkcolor=pink
+}
+
 % -- settings: emphasis --
 \let\emph\relax % theres no \RedeclareTextFontCommand
 \DeclareTextFontCommand{\emph}{\bfseries}
