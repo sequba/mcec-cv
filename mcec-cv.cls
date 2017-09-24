@@ -35,8 +35,9 @@
 % -- Page Setting --
 % ------------------------------
 
-\RequirePackage[left=7.2cm, top=1cm, right=0.8cm, bottom=1.3cm, nohead, nofoot]{geometry}
+\RequirePackage[a4paper, left=7.2cm, top=1cm, right=0.8cm, bottom=1.3cm, nohead, nofoot]{geometry}
 \RequirePackage{hyperref}
+\pagenumbering{gobble}
 
 % -- settings: emphasis --
 \let\emph\relax % theres no \RedeclareTextFontCommand
@@ -88,6 +89,9 @@
 % -- settings: birth date  --
 \newcommand{\givendate}{}
 \renewcommand{\date}[1]{\renewcommand{\givendate}{\textsc{\wbflag{\faCalendar}} #1 \\}}
+% -- settings: marital status --
+\newcommand{\givenmarital}{}
+\newcommand{\marital}[1]{\renewcommand{\givenmarital}{\textsc{\wbflag{\faMale}} #1 \\}}
 % -- settings: address --
 \newcommand{\givenaddress}{}
 \newcommand{\address}[1]{\renewcommand{\givenaddress}{\textsc{\wbflag{\faMapMarker}} #1 \\}}
@@ -277,6 +281,7 @@
 	% -- print personal info --
 	\vspace{0.5cm}	
 	\givendate	
+	\givenmarital
 	\givenaddress
 	\givenphones	
 	\givenemails
