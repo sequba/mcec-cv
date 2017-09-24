@@ -207,17 +207,17 @@
 \newcommand{\litem}[5]{
 \hspace{1mm} \parbox[t]{11.5cm}{
 		\ifthenelse{\isempty{#1}}{}
-			{\textbf{\color{black} \large #1} \\}
+			{\textbf{\color{black} \large #1}}
 		\ifthenelse{\isempty{#2}}{}
-			{\textbf{\color{black} \normalsize #2} \\}
+			{\\ \textbf{\color{black} \normalsize #2}}
 		\ifthenelse{\isempty{#3}}{}
-			{\textbf{\color{grey} {\small #3}}}
+			{\\ \textbf{\color{grey} {\small #3}}}
 		\ifthenelse{\isempty{#4}}{}
 			{\textbf{\color{grey}| {\footnotesize #4}}}	
-}
+} \\
 
 \ifthenelse{\isempty{#5}}{}
-	{\\ \vspace{5mm} \hspace{1mm} \parbox[t]{13.4cm}{ {\color{grey} \small #5} }}
+	{\vspace{5mm} \hspace{1mm} \parbox[t]{13.4cm}{ {\color{grey} \small #5} }}
 \\ }
 
 % mcecslist (normal list): [4]
