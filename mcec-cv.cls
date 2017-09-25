@@ -68,7 +68,7 @@
 % -- mcec flags: --
 \newcommand{\flag}[1]{\round{#1}{maingrey}{white}}
 \newcommand{\largeflag}[1]{\round{\large #1}{maingrey}{white}}
-\newcommand{\smallflag}[1]{\littleround{#1}{maingrey}{white}}
+\newcommand{\smallflag}[1]{\littleround{\small #1}{maingrey}{white}}
 \newcommand{\wbflag}[1]{\littleround{#1}{white}{black}}
 
 % ------------------------------
@@ -227,18 +227,26 @@
 \newenvironment{mcecllist}{
 	\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}ll} }
 	{ \end{tabular*} }
-\newcommand{\litem}[5]{
-\vspace{3mm} \hspace{1mm} \parbox[t]{13cm}{
-		\ifthenelse{\isempty{#1}}{}
-			{\textbf{\color{black} \large #1}}
+\newcommand{\litem}[6][{}]{
+\vspace{3mm} \hspace{0.5mm} \parbox[t]{13cm}{
+		% title
 		\ifthenelse{\isempty{#2}}{}
-			{\\ \textbf{\color{black} \normalsize #2}}
+			{\textbf{\color{black} \large #2}}
+		% subtitle
 		\ifthenelse{\isempty{#3}}{}
-			{\\ \textbf{\color{grey} {\small #3}}}
+			{\\ \textbf{\color{black} \normalsize #3}}
+		% date
 		\ifthenelse{\isempty{#4}}{}
-			{\textbf{\color{grey}| {\footnotesize #4}}}	
+			{\\ \textbf{\color{grey} {\small #4}}}
+		% location
 		\ifthenelse{\isempty{#5}}{}
-			{\\ \color{grey} \small #5}
+			{\textbf{\color{grey}| {\footnotesize #5}}}	
+		% description
+		\ifthenelse{\isempty{#6}}{}
+			{\\ \color{grey} \small #6}
+		% flags
+		\ifthenelse{\isempty{#1}}{}
+			{\\ \foreach [count=\i] \x in {#1} {\smallflag{\x} }}
 } \\ }
 
 % mcecslist (normal list): [4]
