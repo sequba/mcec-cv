@@ -228,7 +228,7 @@
 	\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}ll} }
 	{ \end{tabular*} }
 \newcommand{\litem}[5]{
-\hspace{1mm} \parbox[t]{13cm}{
+\vspace{3mm} \hspace{1mm} \parbox[t]{13cm}{
 		\ifthenelse{\isempty{#1}}{}
 			{\textbf{\color{black} \large #1}}
 		\ifthenelse{\isempty{#2}}{}
@@ -237,11 +237,9 @@
 			{\\ \textbf{\color{grey} {\small #3}}}
 		\ifthenelse{\isempty{#4}}{}
 			{\textbf{\color{grey}| {\footnotesize #4}}}	
-} \\
-
-\ifthenelse{\isempty{#5}}{}
-	{\vspace{5mm} \hspace{1mm} \parbox[t]{13cm}{ {\color{grey} \small #5} }}
-\\ }
+		\ifthenelse{\isempty{#5}}{}
+			{\\ \color{grey} \small #5}
+} \\ }
 
 % mcecslist (normal list): [4]
 % 	(1) title certificate (2) link (3) code (4) date 
