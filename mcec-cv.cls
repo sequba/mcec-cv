@@ -259,7 +259,7 @@
 	\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}ll} }
 	{ \end{tabular*} }
 \newcommand{\sitem}[2]{
-\vspace{0.1cm} \hspace{4pt} \color{grey} {\small #1}&\parbox[t]{12cm}{
+\vspace{0.1cm} \hspace{4pt} \color{grey} {\small #1}&\parbox[t]{11.8cm}{
 	\textnormal{\color{black} \normalsize #2}
 }\\}
 
