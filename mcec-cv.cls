@@ -92,9 +92,21 @@
 % -- settings: job --
 \newcommand{\givenjob}{}
 \newcommand{\job}[1]{\renewcommand{\givenjob}{#1}}
+
 % -- settings: birth date  --
 \newcommand{\givendate}{}
-\renewcommand{\date}[1]{\renewcommand{\givendate}{\textsc{\wbflag{\faCalendar}} #1 \\}}
+\renewcommand{\date}[3]{\renewcommand{\givendate}{
+		\newcounter{myage}
+		\setcounter{myage}{\the\year}
+		\addtocounter{myage}{-#1}
+		\ifthenelse{\the\month<#2}{\addtocounter{myage}{-1}}{}
+		\ifthenelse{\the\month=#2}{
+				  \ifthenelse{\the\day < #3}{\addtocounter{myage}{-1}}{}
+		}{}
+
+		\textsc{\wbflag{\faCalendar}} age: \themyage{} \\
+}}
+
 % -- settings: marital status --
 \newcommand{\givenmarital}{}
 \newcommand{\marital}[1]{\renewcommand{\givenmarital}{\textsc{\wbflag{\faMale}} #1 \\}}
