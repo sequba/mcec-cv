@@ -68,6 +68,7 @@
 % -- mcec flags: --
 \newcommand{\flag}[1]{\round{#1}{maingrey}{white}}
 \newcommand{\largeflag}[1]{\round{\large #1}{maingrey}{white}}
+\newcommand{\smallflag}[1]{\littleround{#1}{maingrey}{white}}
 \newcommand{\wbflag}[1]{\littleround{#1}{white}{black}}
 
 % ------------------------------
