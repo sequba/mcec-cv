@@ -220,6 +220,10 @@
 % -- settings: lists mcec --
 % ------------------------------
 
+\newcommand{\flagseq}[2][\smallflag]{
+	\foreach [count=\i] \x in {#2} {#1{\x} }
+}
+
 % mcecllist (long list): [5]
 % 	(1) job position / title school
 %	(2) company name / school course
@@ -246,10 +250,10 @@
 			{\\ \color{grey} \small #6}
 		% flags
 		\ifthenelse{\isempty{#1}}{}
-			{\\ \foreach [count=\i] \x in {#1} {\smallflag{\x} }}
+			{\\ \flagseq{#1}}
 } \\ }
 
-% mcecslist (normal list): [4]
+% mcecnlist (normal list): [4]
 % 	(1) title certificate (2) link (3) code (4) date 
 \newenvironment{mcecnlist}{
 	\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}ll} }
@@ -265,9 +269,12 @@
 \newenvironment{mcecslist}{
 	\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}ll} }
 	{ \end{tabular*} }
-\newcommand{\sitem}[2]{
-\vspace{0.1cm} \hspace{4pt} \color{grey} {\small #1}&\parbox[t]{11.8cm}{
-	\textnormal{\color{black} \normalsize #2}
+\newcommand{\sitem}[3][{}]{
+\vspace{0.1cm} \hspace{4pt} \color{grey} {\small #2}&\parbox[t]{11.8cm}{
+	\textnormal{\color{black} \normalsize #3}
+	% flags
+	\ifthenelse{\isempty{#1}}{}
+		{\\ \flagseq{#1}}
 }\\}
 
 
