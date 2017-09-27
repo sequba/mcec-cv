@@ -111,7 +111,9 @@
 % -- settings: marital status --
 \newcommand{\givenmarital}{}
 \newcommand{\marital}[1]{\renewcommand{\givenmarital}{\textsc{\wbflag{\faMale}} #1 \\}}
-% -- settings: address --
+% -- settings: nationality --
+\newcommand{\givennationality}{}
+\newcommand{\nationality}[1]{\renewcommand{\givennationality}{\textsc{\wbflag{\faFlagCheckered}} #1 \\}}% -- settings: address --
 \newcommand{\givenaddress}{}
 \newcommand{\address}[1]{\renewcommand{\givenaddress}{\textsc{\wbflag{\faMapMarker}} #1 \\}}
 % -- settings: phones --
@@ -324,6 +326,7 @@
 	\vspace{0.5cm}	
 	\givendate	
 	\givenmarital
+	\givennationality
 	\givenaddress
 	\givenphones	
 	\givenemails
