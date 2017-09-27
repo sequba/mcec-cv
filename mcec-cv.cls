@@ -182,6 +182,16 @@
 }}
 \newcommand{\givenmcecskills}{}
 
+% -- settings: interests --
+\newcommand{\interests}[2][Interests]{
+	\renewcommand{\giveninterests}{
+		\vspace{0.5cm}
+		\section{#1}
+		\begin{flushleft}
+		\foreach [count=\i] \x in {#2} {\flag{\x} }
+		\end{flushleft}
+}}
+\newcommand{\giveninterests}{}
 
 % -- settings: skills --
 \newcommand\skills[1]{ 
@@ -232,7 +242,7 @@
 	\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}ll} }
 	{ \end{tabular*} }
 \newcommand{\litem}[6][{}]{
-\vspace{3mm} \hspace{0.5mm} \parbox[t]{13cm}{
+\vspace{4mm} \hspace{0.5mm} \parbox[t]{13cm}{
 		% title
 		\ifthenelse{\isempty{#2}}{}
 			{\textbf{\color{black} \large #2}}
@@ -270,7 +280,7 @@
 	\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}ll} }
 	{ \end{tabular*} }
 \newcommand{\sitem}[3][{}]{
-\vspace{0.1cm} \hspace{4pt} \color{grey} {\small #2}&\parbox[t]{11.8cm}{
+\vspace{0.2cm} \hspace{4pt} \color{grey} {\small #2}&\parbox[t]{11.8cm}{
 	\textnormal{\color{black} \normalsize #3}
 	% flags
 	\ifthenelse{\isempty{#1}}{}
@@ -327,7 +337,9 @@
 	\givenlanguages
 	
 	\givenmcecskills
-	
+
+	\giveninterests
+
 %	\section{Skill}
 %	\givenskill
 %	\giventextskill
