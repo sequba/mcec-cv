@@ -59,11 +59,10 @@
 }
 
 \newcommand*\round[3]{%
-  \tikz[baseline=(char.base)]\node[anchor=north west, draw, rectangle, rounded corners, inner sep=3pt, minimum size=6mm,
-    text height=3mm, fill=#2, #2, text=#3](char){#1} ;}
+	\tikz[baseline=(char.base)]\node[anchor=north west, draw, rectangle, rounded corners, inner sep=3pt, minimum size=6mm, text height=3mm, fill=#2, #2, text=#3](char){#1} ;}
     
 \newcommand*\littleround[3]{%
-  \tikz[baseline=(char.base)]\node[rounded corners, minimum width=6mm, fill=#2, #2, text=#3](char){#1} ;}
+	\tikz[baseline=(char.base)]\node[anchor=north west, draw, rectangle, rounded corners, inner sep=3pt, minimum size=5.3mm, text height=2.4mm, fill=#2, #2, text=#3](char){#1} ;}
 
 % -- mcec flags: --
 \newcommand{\flag}[1]{\round{#1}{maingrey}{white}}
