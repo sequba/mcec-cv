@@ -179,7 +179,7 @@
 		\vspace{0.5cm} 
 		\section{#1}
 		\begin{flushleft}
-		\foreach [count=\i] \x in {#2} {\flag{\x} } 
+		\foreach [count=\i] \x in {#2} {\smallflag{\x} } 
 		\end{flushleft}
 }}
 \newcommand{\givenmcecskills}{}
@@ -190,7 +190,7 @@
 		\vspace{0.5cm}
 		\section{#1}
 		\begin{flushleft}
-		\foreach [count=\i] \x in {#2} {\flag{\x} }
+		\foreach [count=\i] \x in {#2} {\smallflag{\x} }
 		\end{flushleft}
 }}
 \newcommand{\giveninterests}{}
