@@ -52,7 +52,7 @@
 % -- settings: section --
 \renewcommand{\section}[1]{
 	\par\noindent\colorbox{maincolor}
-	{\parbox[t][0.6cm][c]
+	{\parbox[t][0.5cm][c]
 		{\dimexpr\textwidth-0\fboxsep\relax}
 		{\par\noindent \centering \color{white} \large #1 } 
 	} \par\noindent
