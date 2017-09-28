@@ -35,7 +35,7 @@
 % -- Page Setting --
 % ------------------------------
 
-\RequirePackage[a4paper, left=7.2cm, top=1cm, right=0.8cm, bottom=1.3cm, nohead, nofoot]{geometry}
+\RequirePackage[a4paper, left=7.2cm, top=0.2cm, right=0.5cm, bottom=1cm, nohead, nofoot]{geometry}
 \RequirePackage{hyperref}
 \pagenumbering{gobble}
 
@@ -299,7 +299,7 @@
 {
 % -- grey background --
 \begin{tikzpicture}[remember picture, overlay]
-	\node [rectangle, fill=asidecolor, anchor=north, minimum width=7cm, minimum height=9cm] (box) at (-3.8cm,1.6cm){};
+	\node [rectangle, fill=asidecolor, anchor=north, minimum width=7cm, minimum height=9.8cm] (box) at (-3.8cm,1.6cm){};
 \end{tikzpicture}
 
 % -- left sidebar content --
